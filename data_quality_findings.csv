@@ -1,0 +1,20 @@
+issue,count,definition
+accounts_missing_borrower,455,Accounts without borrower_id in master
+accounts_borrower_not_in_borrowers,2913,Master borrower IDs absent from borrowers table
+payments_duplicate_id_groups,500,IDs appearing more than once
+payments_duplicate_id_extra_rows,500,Rows beyond first per duplicate ID
+calls_duplicate_id_groups,1350,IDs appearing more than once
+calls_duplicate_id_extra_rows,1350,Rows beyond first per duplicate ID
+calls_conflicting_duplicate_ids,11,Duplicate call IDs with at least one conflicting field
+whatsapp_events_duplicate_id_groups,600,IDs appearing more than once
+whatsapp_events_duplicate_id_extra_rows,600,Rows beyond first per duplicate ID
+borrower_mismatch_payments,0,See derived master-borrower consistency test
+payments_borrower_mismatch_vs_account,25113,Event borrower_id differs from account master borrower_id
+calls_borrower_mismatch_vs_account,89939,Event borrower_id differs from account master borrower_id
+whatsapp_events_borrower_mismatch_vs_account,59673,Event borrower_id differs from account master borrower_id
+account_status_history_borrower_mismatch_vs_account,59035,Event borrower_id differs from account master borrower_id
+targeting_outside_campaign_window,36333,Target date outside campaign definition window
+status_recorded_before_event,30191,recorded_at earlier than event_at
+latest_history_status_differs_from_account,22295,Latest status history differs from account master status
+agent_ids_with_multiple_employee_codes,1000,Agent IDs associated with multiple employee codes
+employee_codes_with_multiple_agent_ids,1099,Employee codes associated with multiple agent IDs

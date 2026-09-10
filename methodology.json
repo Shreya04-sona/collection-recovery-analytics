@@ -1,0 +1,10 @@
+{
+  "primary_recovery_definition": "Proxy recovery rate = successful, exact-deduplicated payment amount in month / static account-master outstanding amount. The dataset does not provide a monthly opening balance, so this is not a true accounting recovery rate.",
+  "payment_cleaning": "Drop exact duplicate rows. Preserve unique payment_id records even when payment_reference is reused across accounts; flag reused references instead of assuming they are duplicates.",
+  "call_cleaning": "Drop exact duplicate rows. Exclude call_ids with conflicting duplicate records from primary call metrics and retain them in rejected/conflicting_calls.csv.",
+  "identity_rule": "Use accounts.account_id -> accounts.borrower_id as the master relationship. Preserve original event borrower_id for audit but replace analytical borrower_id with account master when available.",
+  "campaign_rule": "Do not treat daily_targeting rows outside campaign start/end as valid campaign exposure without qualification; flag them for investigation.",
+  "timezone_rule": "Do not overwrite source timestamps in raw. A production implementation should canonicalize to UTC while retaining source timezone; this submission flags timezone inconsistencies rather than fabricating corrections.",
+  "causal_rule": "Strategy/channel comparisons are descriptive only because targeting is observational and campaign windows contain inconsistencies. A controlled experiment is required before treating observed lift as causal.",
+  "time_window": "January through July 2026 are treated as complete months for trend comparison. August 2026 is partial and excluded from MoM headline comparisons."
+}

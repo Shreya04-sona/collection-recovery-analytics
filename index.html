@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Collections Executive Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>body{font-family:Arial;margin:0;background:#f6f7f9;color:#222}.container{max-width:1200px;margin:auto;padding:24px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}.card,.panel{background:#fff;border-radius:10px;padding:18px;box-shadow:0 1px 5px #ddd}.value{font-size:25px;font-weight:bold}.label{color:#666;font-size:13px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.alert{padding:15px;border-radius:8px;background:#fff3cd}table{width:100%;border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid #eee;text-align:left}</style></head>
+<body><div class="container"><h1>Collections Performance — Executive Dashboard</h1><p>Primary assessment: complete months January–July 2026. August is partial.</p>
+<div class="cards"><div class="card"><div class="label">Jan recovery</div><div class="value">₹187.23M</div></div>
+<div class="card"><div class="label">Jul recovery</div><div class="value">₹187.25M</div></div>
+<div class="card"><div class="label">Jan→Jul change</div><div class="value">0.01%</div></div>
+<div class="card"><div class="label">11% claim</div><div class="value">NOT SUPPORTED</div></div></div>
+<div class="alert"><b>CEO takeaway:</b> The supplied data does not support a sustained 11% month-on-month recovery improvement.</div>
+<div class="grid"><div class="panel"><div id="recovery"></div></div><div class="panel"><div id="mom"></div></div></div>
+<div class="panel" style="margin-top:18px"><h3>Forensics</h3><table>
+<tr><th>Issue</th><th>Finding</th></tr><tr><td>Payment ID conflicts</td><td>0</td></tr>
+<tr><td>Missing payment references</td><td>382</td></tr>
+<tr><td>Status event/record conflicts</td><td>30191 rows have event_at &gt; recorded_at</td></tr>
+<tr><td>Canonical relationship</td><td>account_id → accounts.borrower_id</td></tr></table></div>
+<div class="panel" style="margin-top:18px"><h3>₹10 Cr decision</h3><p>Use stage-gated controlled pilots rather than an irreversible single-channel commitment. Targeting experimentation is the highest priority. ROI and break-even are not estimable from the supplied data.</p></div>
+</div><script>
+const months=["2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08"], recs=[187.23, 170.28, 189.19, 175.23, 184.34, 175.85, 187.25, 47.11], moms=[null, -9.05, 11.11, -7.38, 5.2, -4.6, 6.48, -74.84];
+Plotly.newPlot('recovery',[{x:months,y:recs,type:'scatter',mode:'lines+markers'}],{title:'Successful Recovery',yaxis:{title:'₹ million'}});
+Plotly.newPlot('mom',[{x:months,y:moms,type:'bar'}],{title:'MoM Recovery Change',yaxis:{title:'%'},shapes:[{type:'line',x0:0,x1:1,xref:'paper',y0:11,y1:11,line:{dash:'dash'}}]});
+</script></body></html>
